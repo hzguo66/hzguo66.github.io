@@ -20,23 +20,38 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hzguo66.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":200},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="长颈短脚鸡的窝">
-<meta property="og:url" content="https://hzguo66.github.io/tags/tag2/index.html">
+    <meta name="description" content="第一章：决策树原理 1-决策树算法概述_哔哩哔哩_bilibili">
+<meta property="og:type" content="article">
+<meta property="og:title" content="分类算法">
+<meta property="og:url" content="https://hzguo66.github.io/2024/01/12/%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/index.html">
 <meta property="og:site_name" content="长颈短脚鸡的窝">
+<meta property="og:description" content="第一章：决策树原理 1-决策树算法概述_哔哩哔哩_bilibili">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://hzguo66.github.io/2024/01/12/%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112155024963.png">
+<meta property="og:image" content="https://hzguo66.github.io/2024/01/12/%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112155506650.png">
+<meta property="og:image" content="https://hzguo66.github.io/2024/01/12/%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112155630136.png">
+<meta property="og:image" content="https://hzguo66.github.io/2024/01/12/%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112160606246.png">
+<meta property="og:image" content="https://hzguo66.github.io/2024/01/12/%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112160654223.png">
+<meta property="og:image" content="https://hzguo66.github.io/2024/01/12/%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112160704230.png">
+<meta property="og:image" content="https://hzguo66.github.io/2024/01/12/%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112160742713.png">
+<meta property="og:image" content="https://hzguo66.github.io/2024/01/12/%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112161008571.png">
+<meta property="og:image" content="https://hzguo66.github.io/2024/01/12/%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112161305573.png">
+<meta property="article:published_time" content="2024-01-12T07:49:57.000Z">
+<meta property="article:modified_time" content="2024-01-12T08:30:44.656Z">
 <meta property="article:author" content="hzguo">
+<meta property="article:tag" content="数据挖掘">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hzguo66.github.io/2024/01/12/%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112155024963.png">
 
 
-<link rel="canonical" href="https://hzguo66.github.io/tags/tag2/">
+<link rel="canonical" href="https://hzguo66.github.io/2024/01/12/%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"tags/tag2/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hzguo66.github.io/2024/01/12/%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/","path":"2024/01/12/分类算法/","title":"分类算法"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>标签: tag2 | 长颈短脚鸡的窝</title>
+<title>分类算法 | 长颈短脚鸡的窝</title>
   
 
 
@@ -186,50 +201,112 @@
 
     </div>
 
-    <div class="main-inner tag posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
+
+
+<div class="post-block">
   
   
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h1 class="collection-header">tag2
-          <small>标签</small>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hzguo66.github.io/2024/01/12/%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="hzguo">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="长颈短脚鸡的窝">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="分类算法 | 长颈短脚鸡的窝">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          分类算法
         </h1>
-      </div>
 
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2023</span>
+
+      <time title="创建时间：2024-01-12 15:49:57 / 修改时间：16:30:44" itemprop="dateCreated datePublished" datetime="2024-01-12T15:49:57+08:00">2024-01-12</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1zN41167xn?p=2&vd_source=55460d497036dd635125163b0e99f789">第一章：决策树原理 1-决策树算法概述_哔哩哔哩_bilibili</a></p>
+<img src="/2024/01/12/%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112155024963.png" class="" title="image-20240112155024963">
+
+<img src="/2024/01/12/%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112155506650.png" class="" title="image-20240112155506650">
+
+<img src="/2024/01/12/%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112155630136.png" class="" title="image-20240112155630136">
+
+<img src="/2024/01/12/%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112160606246.png" class="" title="image-20240112160606246">
+
+<img src="/2024/01/12/%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112160654223.png" class="" title="image-20240112160654223">
+
+<img src="/2024/01/12/%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112160704230.png" class="" title="image-20240112160704230">
+
+<img src="/2024/01/12/%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112160742713.png" class="" title="image-20240112160742713">
+
+<img src="/2024/01/12/%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112161008571.png" class="" title="image-20240112161008571">
+
+<img src="/2024/01/12/%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112161305573.png" class="" title="image-20240112161305573">
+
+<p>ID3的问题：如果出现将ID作为特征，那么结果可能是一个ID下一个样本，算出来熵为0，纯度很高，但是ID对于分类是没有用的。</p>
+<p>C4.5：使用信息增益率解决ID3的问题。按照ID分类成14个，算出来<code>ID的熵</code>为0，<code>假设原始的信息增益</code>为9，那么ID的信息增益为<code>假设原始的信息增益 - ID的熵 = 9</code>，但是信息增益率会除以一个数，减少这种不正常的信息增益值，这个数就是 $-\frac{1}{14}\log(\frac{1}{14})$ 。</p>
+<p>CART：使用GINI系数</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2023-12-18T00:08:18+08:00"
-              content="2023-12-18">
-          12-18
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-        <a class="post-title-link" href="/2023/12/18/test-post/" itemprop="url">
-          <span itemprop="name">test_post</span>
-        </a>
-      </div>
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" rel="tag"># 数据挖掘</a>
+          </div>
 
-      
-    </header>
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/01/12/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/" rel="prev" title="聚类算法">
+                  <i class="fa fa-angle-left"></i> 聚类算法
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
   </article>
+</div>
 
-    </div>
-  </div>
-  
-  
-  
+
+
+
+
 
 </div>
   </main>

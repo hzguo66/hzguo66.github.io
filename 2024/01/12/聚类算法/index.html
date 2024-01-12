@@ -20,30 +20,42 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hzguo66.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":200},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="title11import title">
+    <meta name="description" content="第一章：聚类算法概述_哔哩哔哩_bilibili  K-Means算法           优点： 简单，快速，适合常规数据集 缺点：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="test_post">
-<meta property="og:url" content="https://hzguo66.github.io/2023/12/18/test-post/index.html">
+<meta property="og:title" content="聚类算法">
+<meta property="og:url" content="https://hzguo66.github.io/2024/01/12/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/index.html">
 <meta property="og:site_name" content="长颈短脚鸡的窝">
-<meta property="og:description" content="title11import title">
+<meta property="og:description" content="第一章：聚类算法概述_哔哩哔哩_bilibili  K-Means算法           优点： 简单，快速，适合常规数据集 缺点：">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-12-17T16:08:18.000Z">
-<meta property="article:modified_time" content="2023-12-18T14:36:32.056Z">
+<meta property="og:image" content="https://hzguo66.github.io/2024/01/12/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112114110387.png">
+<meta property="og:image" content="https://hzguo66.github.io/2024/01/12/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112114121865.png">
+<meta property="og:image" content="https://hzguo66.github.io/2024/01/12/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112133210593.png">
+<meta property="og:image" content="https://hzguo66.github.io/2024/01/12/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112134642510.png">
+<meta property="og:image" content="https://hzguo66.github.io/2024/01/12/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112135534747.png">
+<meta property="og:image" content="https://hzguo66.github.io/2024/01/12/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112135610983.png">
+<meta property="og:image" content="https://hzguo66.github.io/2024/01/12/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112140137553.png">
+<meta property="og:image" content="https://hzguo66.github.io/2024/01/12/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112140323186.png">
+<meta property="og:image" content="https://hzguo66.github.io/2024/01/12/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112140359457.png">
+<meta property="og:image" content="https://hzguo66.github.io/2024/01/12/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112141335924.png">
+<meta property="og:image" content="https://hzguo66.github.io/2024/01/12/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112153053875.png">
+<meta property="og:image" content="https://hzguo66.github.io/2024/01/12/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112153224515.png">
+<meta property="og:image" content="https://hzguo66.github.io/2024/01/12/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112153939360.png">
+<meta property="article:published_time" content="2024-01-12T03:39:50.000Z">
+<meta property="article:modified_time" content="2024-01-12T07:39:43.215Z">
 <meta property="article:author" content="hzguo">
-<meta property="article:tag" content="tag1">
-<meta property="article:tag" content="tag2">
-<meta property="article:tag" content="tag3">
+<meta property="article:tag" content="数据挖掘">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hzguo66.github.io/2024/01/12/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112114110387.png">
 
 
-<link rel="canonical" href="https://hzguo66.github.io/2023/12/18/test-post/">
+<link rel="canonical" href="https://hzguo66.github.io/2024/01/12/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hzguo66.github.io/2023/12/18/test-post/","path":"2023/12/18/test-post/","title":"test_post"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hzguo66.github.io/2024/01/12/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/","path":"2024/01/12/聚类算法/","title":"聚类算法"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>test_post | 长颈短脚鸡的窝</title>
+<title>聚类算法 | 长颈短脚鸡的窝</title>
   
 
 
@@ -142,7 +154,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#title1"><span class="nav-number">1.</span> <span class="nav-text">title1</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#K-Means%E7%AE%97%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">K-Means算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DBSCAN%E7%AE%97%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">DBSCAN算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B1%82%E6%AC%A1%E8%81%9A%E7%B1%BB"><span class="nav-number">3.</span> <span class="nav-text">层次聚类</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -205,7 +217,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hzguo66.github.io/2023/12/18/test-post/">
+    <link itemprop="mainEntityOfPage" href="https://hzguo66.github.io/2024/01/12/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -218,12 +230,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="test_post | 长颈短脚鸡的窝">
+      <meta itemprop="name" content="聚类算法 | 长颈短脚鸡的窝">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          test_post
+          聚类算法
         </h1>
 
         <div class="post-meta-container">
@@ -235,7 +247,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2023-12-18 00:08:18 / 修改时间：22:36:32" itemprop="dateCreated datePublished" datetime="2023-12-18T00:08:18+08:00">2023-12-18</time>
+      <time title="创建时间：2024-01-12 11:39:50 / 修改时间：15:39:43" itemprop="dateCreated datePublished" datetime="2024-01-12T11:39:50+08:00">2024-01-12</time>
     </span>
 
   
@@ -247,7 +259,76 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1 id="title1"><a href="#title1" class="headerlink" title="title1"></a>title1</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import title</span><br></pre></td></tr></table></figure>
+    <div class="post-body" itemprop="articleBody"><blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ST411w7De?p=1&vd_source=55460d497036dd635125163b0e99f789">第一章：聚类算法概述_哔哩哔哩_bilibili</a></p>
+</blockquote>
+<h2 id="K-Means算法"><a href="#K-Means算法" class="headerlink" title="K-Means算法"></a><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ST411w7De?p=1&vd_source=55460d497036dd635125163b0e99f789">K-Means算法</a></h2><img src="/2024/01/12/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112114110387.png" class="" title="image-20240112114110387">
+
+<img src="/2024/01/12/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112114121865.png" class="" title="image-20240112114121865">
+
+<img src="/2024/01/12/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112133210593.png" class="" title="image-20240112133210593">
+
+<img src="/2024/01/12/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112134642510.png" class="" title="image-20240112134642510"> 
+
+<img src="/2024/01/12/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112135534747.png" class="" title="image-20240112135534747">
+
+<p>优点：</p>
+<p>简单，快速，适合常规数据集</p>
+<p>缺点：</p>
+<p>K值难确定性</p>
+<p>复杂度与样本呈线性关系</p>
+<p>很那发现任意形状的簇</p>
+<p>初始值对结果影响非常大，需要进行多次实验</p>
+<h2 id="DBSCAN算法"><a href="#DBSCAN算法" class="headerlink" title="DBSCAN算法"></a><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ST411w7De?p=4&spm_id_from=pageDriver&vd_source=55460d497036dd635125163b0e99f789">DBSCAN算法</a></h2><img src="/2024/01/12/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112135610983.png" class="" title="image-20240112135610983">
+
+ <img src="/2024/01/12/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112140137553.png" class="" title="image-20240112140137553">
+
+<img src="/2024/01/12/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112140323186.png" class="" title="image-20240112140323186">
+
+<img src="/2024/01/12/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112140359457.png" class="" title="image-20240112140359457">
+
+<img src="/2024/01/12/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112141335924.png" class="" title="image-20240112141335924">
+
+
+
+<h2 id="层次聚类"><a href="#层次聚类" class="headerlink" title="层次聚类"></a><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ST411w7De?p=24&vd_source=55460d497036dd635125163b0e99f789">层次聚类</a></h2><img src="/2024/01/12/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112153053875.png" class="" title="image-20240112153053875">
+
+<img src="/2024/01/12/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112153224515.png" class="" title="image-20240112153224515">
+
+<img src="/2024/01/12/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112153939360.png" class="" title="image-20240112153939360">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -259,22 +340,20 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/tag1/" rel="tag"># tag1</a>
-              <a href="/tags/tag2/" rel="tag"># tag2</a>
-              <a href="/tags/tag3/" rel="tag"># tag3</a>
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" rel="tag"># 数据挖掘</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2023/08/20/hello-world/" rel="prev" title="Hello World">
-                  <i class="fa fa-angle-left"></i> Hello World
+                <a href="/2024/01/09/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/" rel="prev" title="信息安全">
+                  <i class="fa fa-angle-left"></i> 信息安全
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2023/12/18/test-post-image/" rel="next" title="test_post_image">
-                  test_post_image <i class="fa fa-angle-right"></i>
+                <a href="/2024/01/12/%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/" rel="next" title="分类算法">
+                  分类算法 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>

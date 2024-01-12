@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>test_post</title>
+    <url>/2023/12/18/test-post/</url>
+    <content><![CDATA[<h1 id="title1"><a href="#title1" class="headerlink" title="title1"></a>title1</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">import title</span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+      <tags>
+        <tag>tag1</tag>
+        <tag>tag2</tag>
+        <tag>tag3</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2023/08/20/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -17,19 +30,6 @@
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>test_post</title>
-    <url>/2023/12/18/test-post/</url>
-    <content><![CDATA[<h1 id="title1"><a href="#title1" class="headerlink" title="title1"></a>title1</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">import title</span><br></pre></td></tr></table></figure>
-
-
-]]></content>
-      <tags>
-        <tag>tag1</tag>
-        <tag>tag2</tag>
-        <tag>tag3</tag>
-      </tags>
   </entry>
   <entry>
     <title>信息安全</title>
@@ -416,6 +416,116 @@
 ]]></content>
       <tags>
         <tag>函数式编程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>分类算法</title>
+    <url>/2024/01/12/%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/</url>
+    <content><![CDATA[<p><a href="https://www.bilibili.com/video/BV1zN41167xn?p=2&vd_source=55460d497036dd635125163b0e99f789">第一章：决策树原理 1-决策树算法概述_哔哩哔哩_bilibili</a></p>
+<img src="/2024/01/12/%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112155024963.png" class="" title="image-20240112155024963">
+
+<img src="/2024/01/12/%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112155506650.png" class="" title="image-20240112155506650">
+
+<img src="/2024/01/12/%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112155630136.png" class="" title="image-20240112155630136">
+
+<img src="/2024/01/12/%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112160606246.png" class="" title="image-20240112160606246">
+
+<img src="/2024/01/12/%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112160654223.png" class="" title="image-20240112160654223">
+
+<img src="/2024/01/12/%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112160704230.png" class="" title="image-20240112160704230">
+
+<img src="/2024/01/12/%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112160742713.png" class="" title="image-20240112160742713">
+
+<img src="/2024/01/12/%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112161008571.png" class="" title="image-20240112161008571">
+
+<img src="/2024/01/12/%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112161305573.png" class="" title="image-20240112161305573">
+
+<p>ID3的问题：如果出现将ID作为特征，那么结果可能是一个ID下一个样本，算出来熵为0，纯度很高，但是ID对于分类是没有用的。</p>
+<p>C4.5：使用信息增益率解决ID3的问题。按照ID分类成14个，算出来<code>ID的熵</code>为0，<code>假设原始的信息增益</code>为9，那么ID的信息增益为<code>假设原始的信息增益 - ID的熵 = 9</code>，但是信息增益率会除以一个数，减少这种不正常的信息增益值，这个数就是 $-\frac{1}{14}\log(\frac{1}{14})$ 。</p>
+<p>CART：使用GINI系数</p>
+]]></content>
+      <tags>
+        <tag>数据挖掘</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>聚类算法</title>
+    <url>/2024/01/12/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/</url>
+    <content><![CDATA[<blockquote>
+<p><a href="https://www.bilibili.com/video/BV1ST411w7De?p=1&vd_source=55460d497036dd635125163b0e99f789">第一章：聚类算法概述_哔哩哔哩_bilibili</a></p>
+</blockquote>
+<h2 id="K-Means算法"><a href="#K-Means算法" class="headerlink" title="K-Means算法"></a><a href="https://www.bilibili.com/video/BV1ST411w7De?p=1&vd_source=55460d497036dd635125163b0e99f789">K-Means算法</a></h2><img src="/2024/01/12/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112114110387.png" class="" title="image-20240112114110387">
+
+<img src="/2024/01/12/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112114121865.png" class="" title="image-20240112114121865">
+
+<img src="/2024/01/12/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112133210593.png" class="" title="image-20240112133210593">
+
+<img src="/2024/01/12/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112134642510.png" class="" title="image-20240112134642510"> 
+
+<img src="/2024/01/12/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112135534747.png" class="" title="image-20240112135534747">
+
+<p>优点：</p>
+<p>简单，快速，适合常规数据集</p>
+<p>缺点：</p>
+<p>K值难确定性</p>
+<p>复杂度与样本呈线性关系</p>
+<p>很那发现任意形状的簇</p>
+<p>初始值对结果影响非常大，需要进行多次实验</p>
+<h2 id="DBSCAN算法"><a href="#DBSCAN算法" class="headerlink" title="DBSCAN算法"></a><a href="https://www.bilibili.com/video/BV1ST411w7De?p=4&spm_id_from=pageDriver&vd_source=55460d497036dd635125163b0e99f789">DBSCAN算法</a></h2><img src="/2024/01/12/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112135610983.png" class="" title="image-20240112135610983">
+
+ <img src="/2024/01/12/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112140137553.png" class="" title="image-20240112140137553">
+
+<img src="/2024/01/12/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112140323186.png" class="" title="image-20240112140323186">
+
+<img src="/2024/01/12/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112140359457.png" class="" title="image-20240112140359457">
+
+<img src="/2024/01/12/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112141335924.png" class="" title="image-20240112141335924">
+
+
+
+<h2 id="层次聚类"><a href="#层次聚类" class="headerlink" title="层次聚类"></a><a href="https://www.bilibili.com/video/BV1ST411w7De?p=24&vd_source=55460d497036dd635125163b0e99f789">层次聚类</a></h2><img src="/2024/01/12/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112153053875.png" class="" title="image-20240112153053875">
+
+<img src="/2024/01/12/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112153224515.png" class="" title="image-20240112153224515">
+
+<img src="/2024/01/12/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/image-20240112153939360.png" class="" title="image-20240112153939360">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+]]></content>
+      <tags>
+        <tag>数据挖掘</tag>
       </tags>
   </entry>
 </search>
