@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha256-yIDrPSXHZdOZhAqiBP7CKzIwMQmRCJ8UeB8Jo17YC4o=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.28/fancybox/fancybox.css" integrity="sha256-6cQIC71/iBIYXFK+0RHAvwmjwWzkWd+r7v/BX3/vZDc=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hzguo66.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":200},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="大数据的概念大数据技术：从各种各样类型的数据中，快速高效地获得有价值信息的能力 Apache Hadoop对大数据的定义：通过传统的计算机在可接受的范围内不能捕获、管理和处理的数据集合 即：  数据量大 持续增加 传统数据库技术不能有效管理  大数据的特征：  数量（Volume） 多样性（Variety） 速度（Velocity） 价值（Value）  大数据的表现形态：  多源性 实时性 不确">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大数据导论初学笔记">
+<meta property="og:url" content="https://hzguo66.github.io/2024/01/12/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AF%BC%E8%AE%BA%E5%88%9D%E5%AD%A6%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="长颈短脚鸡的窝">
+<meta property="og:description" content="大数据的概念大数据技术：从各种各样类型的数据中，快速高效地获得有价值信息的能力 Apache Hadoop对大数据的定义：通过传统的计算机在可接受的范围内不能捕获、管理和处理的数据集合 即：  数据量大 持续增加 传统数据库技术不能有效管理  大数据的特征：  数量（Volume） 多样性（Variety） 速度（Velocity） 价值（Value）  大数据的表现形态：  多源性 实时性 不确">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://hzguo66.github.io/2024/01/12/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AF%BC%E8%AE%BA%E5%88%9D%E5%AD%A6%E7%AC%94%E8%AE%B0/image-20240112234743063.png">
+<meta property="article:published_time" content="2024-01-12T15:29:01.000Z">
+<meta property="article:modified_time" content="2024-01-12T16:20:45.447Z">
+<meta property="article:author" content="hzguo">
+<meta property="article:tag" content="大数据">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hzguo66.github.io/2024/01/12/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AF%BC%E8%AE%BA%E5%88%9D%E5%AD%A6%E7%AC%94%E8%AE%B0/image-20240112234743063.png">
+
+
+<link rel="canonical" href="https://hzguo66.github.io/2024/01/12/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AF%BC%E8%AE%BA%E5%88%9D%E5%AD%A6%E7%AC%94%E8%AE%B0/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hzguo66.github.io/2024/01/12/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AF%BC%E8%AE%BA%E5%88%9D%E5%AD%A6%E7%AC%94%E8%AE%B0/","path":"2024/01/12/大数据导论初学笔记/","title":"大数据导论初学笔记"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>大数据导论初学笔记 | 长颈短脚鸡的窝</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">长颈短脚鸡的窝</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">大数据的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E6%9E%B6%E6%9E%84"><span class="nav-number">2.</span> <span class="nav-text">大数据的架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%91%E8%AE%A1%E7%AE%97%EF%BC%9A"><span class="nav-number">2.1.</span> <span class="nav-text">云计算：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%EF%BC%9A"><span class="nav-number">2.1.1.</span> <span class="nav-text">定义：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%91%E8%AE%A1%E7%AE%97%E7%9A%84%E7%89%B9%E7%82%B9"><span class="nav-number">2.1.2.</span> <span class="nav-text">云计算的特点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-number">3.</span> <span class="nav-text">大数据生命周期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-number">4.</span> <span class="nav-text">大数据的分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%89%E7%85%A7%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%EF%BC%9A"><span class="nav-number">4.1.</span> <span class="nav-text">按照数据类型：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%89%E7%85%A7%E5%A4%84%E7%90%86%E8%BF%87%E7%A8%8B%E5%88%92%E5%88%86"><span class="nav-number">4.2.</span> <span class="nav-text">按照处理过程划分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%89%E7%85%A7%E7%94%9F%E4%BA%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E4%B8%BB%E9%A2%98%E5%88%92%E5%88%86"><span class="nav-number">4.3.</span> <span class="nav-text">按照生产数据的主题划分</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86"><span class="nav-number">5.</span> <span class="nav-text">数据预处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%B8%85%E6%B4%97"><span class="nav-number">5.1.</span> <span class="nav-text">数据清洗</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86%E6%88%90"><span class="nav-number">5.2.</span> <span class="nav-text">数据集成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%8F%98%E6%8D%A2"><span class="nav-number">5.3.</span> <span class="nav-text">数据变换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%A7%84%E7%BA%A6"><span class="nav-number">5.4.</span> <span class="nav-text">数据规约</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90"><span class="nav-number">6.</span> <span class="nav-text">大数据分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E7%AE%97%E6%B3%95"><span class="nav-number">7.</span> <span class="nav-text">数据挖掘算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="nav-number">8.</span> <span class="nav-text">大数据可视化</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">hzguo</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/hzguo66" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;hzguo66" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://datarock.top/" title="https:&#x2F;&#x2F;datarock.top&#x2F;" rel="noopener" target="_blank">DataRock</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hzguo66.github.io/2024/01/12/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AF%BC%E8%AE%BA%E5%88%9D%E5%AD%A6%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="hzguo">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="长颈短脚鸡的窝">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="大数据导论初学笔记 | 长颈短脚鸡的窝">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          大数据导论初学笔记
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-01-12 23:29:01" itemprop="dateCreated datePublished" datetime="2024-01-12T23:29:01+08:00">2024-01-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-01-13 00:20:45" itemprop="dateModified" datetime="2024-01-13T00:20:45+08:00">2024-01-13</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="大数据的概念"><a href="#大数据的概念" class="headerlink" title="大数据的概念"></a>大数据的概念</h2><p>大数据技术：从各种各样类型的数据中，快速高效地获得有价值信息的能力</p>
+<p>Apache Hadoop对大数据的定义：通过传统的计算机在可接受的范围内不能捕获、管理和处理的数据集合</p>
+<p>即：</p>
+<ol>
+<li>数据量大</li>
+<li>持续增加</li>
+<li>传统数据库技术不能有效管理</li>
+</ol>
+<p>大数据的特征：</p>
+<ol>
+<li>数量（Volume）</li>
+<li>多样性（Variety）</li>
+<li>速度（Velocity）</li>
+<li>价值（Value）</li>
+</ol>
+<p>大数据的表现形态：</p>
+<ol>
+<li>多源性</li>
+<li>实时性</li>
+<li>不确定性：数据、算法模型的不确定性</li>
+</ol>
+<h2 id="大数据的架构"><a href="#大数据的架构" class="headerlink" title="大数据的架构"></a>大数据的架构</h2><h3 id="云计算："><a href="#云计算：" class="headerlink" title="云计算："></a>云计算：</h3><h4 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h4><p>2012国务院政府工作报告：基于互联网的服务的增加、使用和交付模式，通常涉及通过互联网来提供动态易拓展且经常是虚拟化的资源。</p>
+<h4 id="云计算的特点"><a href="#云计算的特点" class="headerlink" title="云计算的特点"></a>云计算的特点</h4><ol>
+<li>资源池弹性可扩张：资源的集中管理和输出，即资源池</li>
+<li>需求服务自主化：按需向用户提供资源</li>
+<li>虚拟化：利用软件来实现硬件资源的虚拟化管理、调度及应用</li>
+<li>以网络为中心：应用服务通常都是通过网络来提供的</li>
+<li>高可靠性和安全性：</li>
+</ol>
+<h2 id="大数据生命周期"><a href="#大数据生命周期" class="headerlink" title="大数据生命周期"></a>大数据生命周期</h2><p>大数据从数据源经过分析挖掘直到最终获得价值需要经过5个环节：</p>
+<ol>
+<li>数据准备</li>
+<li>数据存储与管理</li>
+<li>计算处理</li>
+<li>数据分析</li>
+<li>知识展现</li>
+</ol>
+<img src="/2024/01/12/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AF%BC%E8%AE%BA%E5%88%9D%E5%AD%A6%E7%AC%94%E8%AE%B0/image-20240112234743063.png" class="" title="image-20240112234743063">
+
+
+
+<h2 id="大数据的分类"><a href="#大数据的分类" class="headerlink" title="大数据的分类"></a>大数据的分类</h2><h3 id="按照数据类型："><a href="#按照数据类型：" class="headerlink" title="按照数据类型："></a>按照数据类型：</h3><ol>
+<li>传统企业数据</li>
+<li>机器和传感器数据</li>
+<li>社交数据</li>
+</ol>
+<h3 id="按照处理过程划分"><a href="#按照处理过程划分" class="headerlink" title="按照处理过程划分"></a>按照处理过程划分</h3><ol>
+<li>海量型数据</li>
+<li>响应型数据</li>
+<li>影随型数据：你可以拥有，但不容易拿到的数据：保安亭的出入数据</li>
+<li>过程型数据</li>
+<li>未知型数据</li>
+</ol>
+<h3 id="按照生产数据的主题划分"><a href="#按照生产数据的主题划分" class="headerlink" title="按照生产数据的主题划分"></a>按照生产数据的主题划分</h3><h2 id="数据预处理"><a href="#数据预处理" class="headerlink" title="数据预处理"></a>数据预处理</h2><p>数据预处理方法有很多，包括如下：</p>
+<h3 id="数据清洗"><a href="#数据清洗" class="headerlink" title="数据清洗"></a>数据清洗</h3><p>需要清洗的数据类型：残缺数据、错误数据、重复数据、数据的不一致性</p>
+<h3 id="数据集成"><a href="#数据集成" class="headerlink" title="数据集成"></a>数据集成</h3><p>将多个数据源中的数据结合起来并统一存储，建立数据仓库</p>
+<h3 id="数据变换"><a href="#数据变换" class="headerlink" title="数据变换"></a>数据变换</h3><p>采用线性或非线性的数据变换方法将多位数据压缩成较少维的数据，消除它们在时间、空间、属性及精度等特征表现方面的差异。</p>
+<p>将数据从一种表现形式变成另一种表现形式的过程</p>
+<h3 id="数据规约"><a href="#数据规约" class="headerlink" title="数据规约"></a>数据规约</h3><p>在尽可能保持数据原貌的前提下，最大限度地精简数据量保持数据的原始状态。数据规约可以分为3类：</p>
+<ol>
+<li>特征规约</li>
+<li>样本规约</li>
+<li>特征值规约</li>
+</ol>
+<h2 id="大数据分析"><a href="#大数据分析" class="headerlink" title="大数据分析"></a>大数据分析</h2><p>是指收集、处理数据并获取数据中隐含的信息的过程。目的有：</p>
+<ol>
+<li>推测或解释数据并确定如何使用数据</li>
+<li>检查数据是否合法</li>
+<li>给决策制定合理建议</li>
+<li>诊断或推断数据错误原因</li>
+<li>预测未来将要发生的事情</li>
+</ol>
+<p>数据分析可以分为三个层次：</p>
+<ol>
+<li>描述性分析：基于历史数据来描述发生的事件</li>
+<li>预测性分析：预测未来事件发生的概率和演化趋势</li>
+<li>规则性分析：解决决策制定和提高分析效率</li>
+</ol>
+<p>数据分析活动步骤：</p>
+<ol>
+<li>数据获取和存储</li>
+<li>数据信息抽取及无用信息清洗</li>
+<li>数据整合和表示：转化成机器能够读取理解的格式</li>
+<li>数据模型的建立和结果分析</li>
+<li>结果阐释</li>
+</ol>
+<p>分析数据：</p>
+<p>主要依靠4项技术：统计分析、数据挖掘、机器学习和可视化分析</p>
+<h2 id="数据挖掘算法"><a href="#数据挖掘算法" class="headerlink" title="数据挖掘算法"></a>数据挖掘算法</h2><p>从大量的、不完全的、有噪声的、模糊的、随机的实际应用数据中，提取隐含在其中的、人们实现不知道的、但有又是潜在在有用的信息和知识的过程。</p>
+<h2 id="大数据可视化"><a href="#大数据可视化" class="headerlink" title="大数据可视化"></a>大数据可视化</h2><p>可视化的基本特征：</p>
+<ol>
+<li>易懂性：容易被人们理解和接受，为决策支持提供帮助</li>
+<li>必然性：由于数据量大，所以可视化必然要求人们对数据进行归纳总结，对数据的结构和形式进行转化处理</li>
+<li>专业性：往往只是从特定视角或需求认识数据</li>
+<li>片面性：可视化与专业知识紧密相连</li>
+</ol>
+<p>可视化流程：</p>
+<ol>
+<li>数据获取</li>
+<li>数据处理</li>
+<li>可视化模式</li>
+<li>可视化应用</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag"># 大数据</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/01/12/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%E7%AC%94%E8%AE%B0/" rel="prev" title="概率论与数理统计笔记">
+                  <i class="fa fa-angle-left"></i> 概率论与数理统计笔记
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">hzguo</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.28/fancybox/fancybox.umd.js" integrity="sha256-ytMJGN3toR+a84u7g7NuHm91VIR06Q41kMWDr2pq7Zo=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
