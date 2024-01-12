@@ -105,7 +105,8 @@ menu:
   #schedule: /schedule/ || fa fa-calendar
   #sitemap: /sitemap.xml || fa fa-sitemap
   #commonweal: /404/ || fa fa-heartbeat
-  new_page: test-page
+  #关闭测试的page
+  #new_page: test-page
 
 # Enable / Disable menu icons / item badges.
 menu_settings:
@@ -179,7 +180,7 @@ links_settings:
   layout: block
 
 links:
-  TestPage: https://datarock.top/
+  DataRock: https://datarock.top/
   #Title: https://example.com
 
 # Table of Contents in the Sidebar
